@@ -21,7 +21,6 @@ export const StoryImage = styled.Image`
 
 export const Footer = styled.View`
   padding: 16px;
-  margin-bottom: 16px;
   align-items: center;
   flex-direction: row;
   justify-content: space-between;

@@ -1,7 +1,9 @@
 import * as React from "react";
-import { ScrollView } from "react-native";
+import { Dimensions, ScrollView } from "react-native";
 import SingleStory, { Story } from "./SingleStory";
 import { StoriesContainer } from "./StoriesStyles";
+
+const { width } = Dimensions.get("window");
 
 type StoriesProps = {
   stories: Story[];
@@ -10,7 +12,7 @@ type StoriesProps = {
 const Stories: React.FC<StoriesProps> = ({ stories }) => {
   return (
     <StoriesContainer>
-      <ScrollView horizontal={true}>
+      <ScrollView snapToInterval={width} horizontal={true}>
         {stories.map((story, i) => (
           <SingleStory key={story.id} {...story} />
         ))}
