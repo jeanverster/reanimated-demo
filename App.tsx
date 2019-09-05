@@ -2,9 +2,13 @@ import { AppLoading } from "expo";
 import { Asset } from "expo-asset";
 import React from "react";
 import { StatusBar, StyleSheet } from "react-native";
+import { createAppContainer } from "react-navigation";
+import { createStackNavigator } from "react-navigation-stack";
+import PerfDemo from "./src/components/PerfDemo/PerfDemo";
 import Stories from "./src/components/Stories/Stories";
+import HomeScreen from "./src/HomeScreen";
 
-const stories = [
+export const stories = [
   {
     id: "0",
     source: require("./assets/0.jpg"),
@@ -37,6 +41,14 @@ const stories = [
   }
 ];
 
+const Navigator = createStackNavigator({
+  home: { screen: HomeScreen },
+  perfDemo: { screen: PerfDemo },
+  instaStories: { screen: Stories }
+});
+
+const MainNav = createAppContainer(Navigator);
+
 export default function App() {
   const [ready, setReady] = React.useState(false);
 
@@ -57,7 +69,7 @@ export default function App() {
   return (
     <React.Fragment>
       <StatusBar barStyle="light-content" />
-      <Stories stories={stories} />
+      <MainNav />
     </React.Fragment>
   );
 }
