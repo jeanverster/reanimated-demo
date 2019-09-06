@@ -44,7 +44,7 @@ export const stories = [
 const Navigator = createStackNavigator({
   home: { screen: HomeScreen },
   perfDemo: { screen: PerfDemo },
-  instaStories: { screen: Stories }
+  instaStories: { screen: Stories, navigationOptions: { header: () => null } }
 });
 
 const MainNav = createAppContainer(Navigator);
