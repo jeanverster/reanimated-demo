@@ -4,6 +4,8 @@ const { width, height } = Dimensions.get("window");
 
 export const Container = styled.View`
   flex: 1;
+  width: ${width};
+  height: ${height};
 `;
 
 export const StoryImage = styled.Image`

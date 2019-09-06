@@ -1,15 +1,12 @@
 import * as React from "react";
 import { Dimensions, ScrollView } from "react-native";
-import SingleStory, { Story } from "./SingleStory";
+import { stories } from "../../../App";
+import SingleStory from "./SingleStory";
 import { StoriesContainer } from "./StoriesStyles";
 
 const { width } = Dimensions.get("window");
 
-type StoriesProps = {
-  stories: Story[];
-};
-
-const Stories: React.FC<StoriesProps> = ({ stories }) => {
+const Stories: React.FC<{}> = () => {
   return (
     <StoriesContainer>
       <ScrollView snapToInterval={width} horizontal={true}>
